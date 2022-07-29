@@ -7,8 +7,7 @@ exports.getAddProduct = (req, res, next) => {
         path: '/admin/add-product',
         formsCSS: true,
         productCSS: true,
-        activeAddProduct: true,
-        isAuthenticated: req.session.isLoggedIn
+        activeAddProduct: true
     })
 };
 
@@ -18,7 +17,6 @@ exports.postAddProduct = (req, res, next) => {
     res.redirect('/');
 };
 
-
 exports.getProducts = (req, res, next) => {
     Product.fetchAll((products) => {
         res.render('shop', {
@@ -27,8 +25,7 @@ exports.getProducts = (req, res, next) => {
             path: '/',
             hasProducts: products.length > 0,
             activeShop: true,
-            productCSS: true,
-            isAuthenticated: req.session.isLoggedIn
+            productCSS: true
         });
     });
 };
